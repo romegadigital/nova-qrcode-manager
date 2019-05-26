@@ -55,7 +55,7 @@ class QrcodeManager extends Resource
     {
         return [
             Qrcode::make('QR Code')
-                ->text($this->text)
+                ->text(json_encode($this->text))
                 ->exceptOnForms(),
 
             Code::make('Text')
