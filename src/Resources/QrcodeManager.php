@@ -1,10 +1,10 @@
 <?php
 namespace Kristories\QrcodeManager\Resources;
 
-use Laravel\Nova\Resource;
 use Illuminate\Http\Request;
 use Kristories\Qrcode\Qrcode;
-use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Code;
+use Laravel\Nova\Resource;
 
 class QrcodeManager extends Resource
 {
@@ -56,31 +56,13 @@ class QrcodeManager extends Resource
         return [
             Qrcode::make('QR Code')
                 ->text($this->text)
-                ->background($this->background)
-                ->logo($this->logo)
                 ->exceptOnForms(),
 
-            Text::make('Text')
-                ->sortable()
+            Code::make('Text')
+                ->json()
                 ->rules([
                     'required',
                 ]),
-
-            Text::make('Background')
-                ->sortable()
-                ->rules([
-                    'nullable',
-                    'url',
-                ])
-                ->onlyOnForms(),
-
-            Text::make('Logo')
-                ->sortable()
-                ->rules([
-                    'nullable',
-                    'url',
-                ])
-                ->onlyOnForms(),
         ];
     }
 

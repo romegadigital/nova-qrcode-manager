@@ -5,5 +5,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Qrcode extends Model
 {
-
+    protected $casts = ['text' => 'array'];
 }
