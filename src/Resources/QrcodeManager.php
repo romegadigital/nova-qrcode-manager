@@ -21,6 +21,8 @@ class QrcodeManager extends Resource
      * @var bool
      */
     public static $globallySearchable = false;
+    
+    public static $displayInNavigation = false;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
